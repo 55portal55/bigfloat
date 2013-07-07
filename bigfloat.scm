@@ -3,7 +3,7 @@
 
 ;;; Author: Rick Miskowski - www.richardmiskowski.com
 
-;;; Uses Andre van Meulebrouck's implementation of bignum integers found at
+;;; Uses Andre van Meulebrock's implementation of bignum integers found at
 ;;; http://www.mactech.com/articles/mactech/Vol.08/08.03/BigNums/index.html
 
 (define precision 32) ; number of digits in floating point numbers
@@ -259,7 +259,8 @@
     xs))
 
 (define (sign-product s1 s2)
-  (not (or (and s1 s2) (and (not s1) (not s2)))))
+  ; exclusive or the operands
+  (and (or s1 s2) (not (and s1 s2))))
 
 ;;; The four bigfloat arithmetic operations.
 
